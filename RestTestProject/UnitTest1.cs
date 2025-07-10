@@ -214,7 +214,7 @@ namespace RestTestProject
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
             int userNumber = 3;
-            const string input = "{}";
+            const string input = "{\"email\":\"george.bluth@gmail.com\",\"first_name\":\"George\",\"last_name\":\"Bluth\",\"avatar\":\"https://reqres.in/img/faces/1-image.jpg\"}";
             RestRequest request = new RestRequest($"api/users/{userNumber}", Method.Put).AddHeader("x-api-key", "reqres-free-v1");
 
             request.AddJsonBody(input);

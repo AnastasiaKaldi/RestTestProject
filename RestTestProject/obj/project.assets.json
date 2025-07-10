@@ -5557,23 +5557,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\38374\\.nuget\\packages\\": {},
+    "C:\\Users\\38376\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\38374\\source\\repos\\RestTestProject\\RestTestProject\\RestTestProject.csproj",
+      "projectUniqueName": "C:\\Users\\38376\\Source\\Repos\\RestTestProject\\RestTestProject\\RestTestProject.csproj",
       "projectName": "RestTestProject",
-      "projectPath": "C:\\Users\\38374\\source\\repos\\RestTestProject\\RestTestProject\\RestTestProject.csproj",
-      "packagesPath": "C:\\Users\\38374\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\38374\\source\\repos\\RestTestProject\\RestTestProject\\obj\\",
+      "projectPath": "C:\\Users\\38376\\Source\\Repos\\RestTestProject\\RestTestProject\\RestTestProject.csproj",
+      "packagesPath": "C:\\Users\\38376\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\38376\\Source\\Repos\\RestTestProject\\RestTestProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\38374\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\38376\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
