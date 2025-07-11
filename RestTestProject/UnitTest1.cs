@@ -8,8 +8,8 @@ namespace RestTestProject
     public class UnitTest1
     {
         [Fact]
-        //checks happy path for fatching user id
-        public async void Test1()
+        //[GET]
+        public async void Happy_path_for_fetching_user_id()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -29,8 +29,8 @@ namespace RestTestProject
         }
 
         [Fact]
-        //checks unhappy path for fatching user id, when the id is an invalid number
-        public async void Test2()
+        //[GET]
+        public async void Unhappy_path_for_fetching_user_id_when_id_is_an_invalid_number()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -52,8 +52,8 @@ namespace RestTestProject
 
 
         [Fact]
-        // checks for fatch of user list
-        public async void Test3() {
+        // [GET]
+        public async void Checks_for_fetch_of_user_id() {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
             RestRequest request = new RestRequest("api/users", Method.Get).AddHeader("x-api-key", "reqres-free-v1");
@@ -67,8 +67,8 @@ namespace RestTestProject
         }
 
         [Fact]
-        // checks for deleting a user
-        public async void Test4()
+        // [DELETE]
+        public async void Checks_for_deleting_a_user()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -88,8 +88,8 @@ namespace RestTestProject
         }
 
         [Fact (Skip = "this test should not fail normally, but there are issues with the API")]
-        // checks unhappy path  for deleting a user, when the user id in invalid
-        public async void Test5()
+        // [DELETE]
+        public async void Checks_unhappy_path_for_deleting_a_user_when_the_user_id_is_invalid()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -110,8 +110,8 @@ namespace RestTestProject
 
 
         [Fact]
-        // checks happy path  for updating a user [PATCH]
-        public async void Test6()
+        //  [PATCH]
+        public async void Checks_happy_path_for_updating_a_user()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -133,8 +133,8 @@ namespace RestTestProject
         }
 
         [Fact (Skip = "This test should not fail normally, but there are issues with the API")]
-        // checks unhappy path  for updating a user, when the user id is invalid [PATCH] 
-        public async void Test7()
+        //  [PATCH] 
+        public async void checks_unhappy_path_for_updating_a_user_when_the_user_id_is_invalid()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -157,8 +157,8 @@ namespace RestTestProject
         }
 
         [Fact]
-        // checks that the response contains the changed paramaterers [PATCH]
-        public async void Test8()
+        //  [PATCH]
+        public async void Checks_that_the_response_contains_the_changed_parameters()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -183,8 +183,8 @@ namespace RestTestProject
         }
 
         [Fact]
-        // checks happy path for updating a user [PUT]
-        public async void Test9()
+        // [PUT]
+        public async void Happy_path_for_updating_a_user()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -208,26 +208,30 @@ namespace RestTestProject
 
 
         [Fact]
-        // checks if the updated data is contained in the API response [PUT]
-        public async void Test10()
+        // [PUT]
+        public async void Checks_if_the_updated_data_is_contained_in_the_API_response()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
             int userNumber = 3;
-            const string input = "{}";
+            const string input = "{\"email\":\"george.bluth@gmail.com\",\"first_name\":\"George\",\"last_name\":\"Bluth\",\"avatar\":\"https://reqres.in/img/faces/1-image.jpg\"}";
             RestRequest request = new RestRequest($"api/users/{userNumber}", Method.Put).AddHeader("x-api-key", "reqres-free-v1");
 
             request.AddJsonBody(input);
             //act
 
             var response = await client.ExecuteAsync(request);
-            var data = JsonSerializer.Deserialize<JsonNode>(response.Content);
-            string actual = $"{data[response.Content]}";
+                 var data = JsonSerializer.Deserialize<JsonNode>(response.Content);
+           
+                        string actual = $"{data[response.Content]}";
+           
+
+                        //assert
+                        Assert.Contains("\"email\":\"george.bluth@gmail.com\",\"first_name\":\"George\",\"last_name\":\"Bluth\",\"avatar\":\"https://reqres.in/img/faces/1-image.jpg\"", response.Content);
 
 
-            //assert
-            Assert.Contains("\"email\":\"george.bluth@gmail.com\",\"first_name\":\"George\",\"last_name\":\"Bluth\",\"avatar\":\"https://reqres.in/img/faces/1-image.jpg\"", response.Content);
-          
+
+
 
 
 
@@ -236,8 +240,8 @@ namespace RestTestProject
 
 
         [Fact (Skip = "This test should not fail normally, but there issues with the API")]
-        // checks unhappy path for updating a user when there are not enough parameters provided [PUT]
-        public async void Test11()
+        //  [PUT]
+        public async void Checks_unhappy_path_for_updating_a_user_when_there_are_not_enough_parameters_provided()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
@@ -260,8 +264,8 @@ namespace RestTestProject
         }
 
         [Fact(Skip = "This test should not fail normally, but there issues with the API")]
-        // checks unhappy path for updating a user when there are not enough parameters provided [PUT]
-        public async void Test12()
+        // [PUT]
+        public async void checks_unhappy_path_for_updating_a_user_when_there_are_not_enough_parameters_provided()
         {
             //arrange
             RestClient client = new RestClient("https://reqres.in/");
